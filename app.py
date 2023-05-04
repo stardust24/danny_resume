@@ -4,6 +4,8 @@ from database import load_jobs_from_db
 # call Flask
 app = Flask(__name__)
 
+# append in domina name 
+# extract data from database
 @app.route("/")
 def hello_danny():
     jobs_list = load_jobs_from_db()
