@@ -2,7 +2,7 @@ import sqlalchemy
 
 from sqlalchemy import create_engine, text
 
-db_connection_string = "mysql+pymysql://1aqj44fdwrckuey2m4ex:pscale_pw_h8JgRmmXokkDC2vcDnfY09Z3EbOrSJMvQTeoFpLV9Oq@aws.connect.psdb.cloud/dannycareer?charset=utf8mb4"
+db_connection_string = "mysql+pymysql://username:password@host/schema?charset=utf8mb4"
 
 engine = create_engine(db_connection_string,
         connect_args={

@@ -5,14 +5,7 @@ import os
 db_connection_string = os.environ['DB_CONNECTION_STRING']
 
 
-# db_connection_string = "mysql+pymysql://1aqj44fdwrckuey2m4ex:pscale_pw_h8JgRmmXokkDC2vcDnfY09Z3EbOrSJMvQTeoFpLV9Oq@aws.connect.psdb.cloud/dannycareer?charset=utf8mb4"
 
-
-#user_name = "1aqj44fdwrckuey2m4ex"
-#pass_string = "pscale_pw_h8JgRmmXokkDC2vcDnfY09Z3EbOrSJMvQTeoFpLV9Oq"
-#hostname_string = "aws.connect.psdb.cloud"
-#dbname_string = "dannycareer"
-#db_connection_string = "mysql+pymysql://" + user_name + ":" + pass_string + "@" + #hostname_string +"/" + dbname_string + "?charset=utf8mb4"
 
 # print(db_connection_string)
 
