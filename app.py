@@ -12,7 +12,7 @@ app = Flask(__name__)
 # -----------------------------------------------------------------------
 # append in domina name 
 # extract data from database
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def hello_danny():
     jobs_list = load_jobs_from_db()
     return render_template("home.html", jobs=jobs_list, compay_name = 'Danny')
