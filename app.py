@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify
 from database import load_jobs_from_db, retrieve_jobs_from_db, add_application_to_db
+from database import load_work_exp
 from flask import request
 
 from sqlalchemy import create_engine
@@ -14,8 +15,8 @@ app = Flask(__name__)
 # extract data from database
 @app.route("/", methods=['GET', 'POST'])
 def hello_danny():
-    jobs_list = load_jobs_from_db()
-    return render_template("home.html", jobs=jobs_list, compay_name = 'Danny')
+    exp_list = load_work_exp()
+    return render_template("home.html", workexp = exp_list)
 
 # -----------------------------------------------------------------------
 #return JONS

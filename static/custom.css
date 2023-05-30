@@ -14,7 +14,7 @@
 
 
 .navbar-nav.mr-auto .nav-item .nav-link {
-    color: #010101;
+    color: #F8BE16;  
 }
 body footer {
     color: #010101;
@@ -35,8 +35,10 @@ h5 {
 
 
 body {
-    background-image: url(../images/Wall.png);
+    background-image: url('/static/Wall.png');
 }
+
+
 
 
 
