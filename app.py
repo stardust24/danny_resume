@@ -21,6 +21,22 @@ def hello_danny():
     return render_template("home.html", workexp = exp_list, edu = edu_list, skill = skill_list)
 
 # -----------------------------------------------------------------------
+#return about
+@app.route("/about")
+def show_about():
+    return render_template('about.html')
+
+
+#return contact
+@app.route("/contact")
+def show_contact():
+    return render_template('contact.html')
+
+#return link
+@app.route("/link")
+def show_link():
+    return render_template('link.html')
+# -----------------------------------------------------------------------
 #return JONS
 @app.route("/job/<id>")
 def show_job(id):
