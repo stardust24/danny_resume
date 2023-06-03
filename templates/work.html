@@ -1,0 +1,18 @@
+    
+    <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordion1">
+      <div class="card-body"><strong>
+        <div>
+        {% for yearexp in workexp %}  <!-- extract each items -->
+              <div>{{yearexp['working_date_from']}} - {{yearexp['working_date_end']}} : {{yearexp['job_title']}},  {{yearexp['company_name']}} ,  {{yearexp['location']}}</div> 
+                <ul>
+                     {% for line in yearexp['responsibilities'].splitlines() %}
+                     <li">{{line}} </li>
+                     {% endfor %}   
+                </ul> 
+        {% endfor %} 
+      </div>   
+      
+      </div>
+        </strong>
+    </div>
+  

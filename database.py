@@ -16,10 +16,10 @@ engine = create_engine(db_connection_string,
         }
         })
 
-# -----------------------------------------------------------------------
+# --------------load work experience ---------------------------------------------------------
 def load_work_exp():
     #select data from database
-    sl_str ="select person_exp_hist.resume_id, person_exp_hist.profile_id, person_exp_hist.working_date_from, person_exp_hist.working_date_end, person_exp_hist.job_title, person_exp_hist.company_name, person_exp_hist.location, person_exp_hist.responsibilities, person_profile.name, person_profile.last_name, person_profile.date_of_birth, person_profile.phone, person_profile.email, person_profile.interests, person_profile.achievements, person_skill.skill_id, person_skill.profile_id, person_skill.skill_name, person_skill.years_of_experience FROM  person_exp_hist JOIN person_profile ON person_exp_hist.profile_id = person_profile.profile_id JOIN person_skill ON person_profile.profile_id = person_skill.profile_id"
+    sl_str ="select person_exp_hist.resume_id, person_exp_hist.profile_id, person_exp_hist.working_date_from, person_exp_hist.working_date_end, person_exp_hist.job_title, person_exp_hist.company_name, person_exp_hist.location, person_exp_hist.responsibilities, person_profile.name, person_profile.last_name, person_profile.date_of_birth, person_profile.phone, person_profile.email, person_profile.interests, person_profile.achievements FROM  person_exp_hist JOIN person_profile ON person_exp_hist.profile_id = person_profile.profile_id"
   
     with engine.connect() as conn:
         result = conn.execute(text(sl_str))
@@ -33,7 +33,40 @@ def load_work_exp():
     return experience    
 
 
+# --------------load education ------------------------------------
+def load_education():
+    #select data from database
+    sl_str = "SELECT person_profile.name, person_profile.last_name, person_education.education FROM person_education INNER JOIN person_profile ON person_profile.profile_id = person_education.profile_id "
+  
+    with engine.connect() as conn:
+        result = conn.execute(text(sl_str))
         
+    education = []
+    for row in result.all():
+        # row_string = row
+        # print out each row._asdict()
+        #print(row._asdict()) in dictionary format
+        education.append(row._asdict())
+    return education
+
+
+# --------------load skill ------------------------------------
+def load_skill():
+    #select data from database
+    sl_str = "SELECT person_profile.name, person_profile.last_name, person_skill.skill_name, person_skill.years_of_experience FROM  person_skill INNER JOIN person_profile ON person_profile.profile_id = person_skill.profile_id order by person_skill.skill_name ASC"
+  
+    with engine.connect() as conn:
+        result = conn.execute(text(sl_str))
+        
+    skill = []
+    for row in result.all():
+        # row_string = row
+        # print out each row._asdict()
+        #print(row._asdict()) in dictionary format
+        skill.append(row._asdict())
+    return skill
+
+# -----------------------------------------------------------------------        
 def load_jobs_from_db():
     #select data from database
     with engine.connect() as conn:

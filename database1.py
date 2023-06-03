@@ -12,36 +12,31 @@ engine = create_engine(db_connection_string,
         }
         })
 
+#sl_str ="select person_exp_hist.resume_id, person_exp_hist.profile_id, person_exp_hist.working_date_from, person_exp_hist.working_date_end, person_exp_hist.job_title, person_exp_hist.company_name, person_exp_hist.location, person_exp_hist.responsibilities, person_profile.name, person_profile.last_name, person_profile.achievements FROM  person_exp_hist JOIN person_profile ON person_exp_hist.profile_id = person_profile.profile_id"
+
+
+sl_str = "SELECT person_profile.name, person_profile.last_name, person_education.education FROM person_education INNER JOIN person_profile ON person_profile.profile_id = person_education.profile_id "
+
 with engine.connect() as conn:
-    result = conn.execute(text("select * from jobs"))
-    print("tyep(result) : ",type(result))
- 
-    result_all = result.all()
-    print("type(result_all) : ",type(result_all))
-    
-    #see the first element
-    print(result_all[0]) 
-    first_result = result_all[0]
-    print("type(first_result) : ",type(first_result))
-
-    if result_all == None:
-        print("empty")
-    else:
-        print("No empty")
+  result = conn.execute(text(sl_str))
+        
+education = []
+for row in result.all():
+        # row_string = row
+        # print out each row._asdict()
+        #print(row._asdict()) in dictionary format
+    education.append(row._asdict())
 
 
-id = 1
-with engine.connect() as conn:
-    id = 1
-    sql_string =  "select * from jobs where id = " + str(id)
-    result = conn.execute(text(sql_string))
+print(list(education))
 
-    print("tyep(result) : ",type(result))
-    result_all = result.all()
-    print("type(result_all) : ",type(result_all))
-    #see the first element
-    print(result_all[0]) 
-    row = result_all[0]._asdict()
-    print("particular result --")
-    print("type(row) : ",type(row))
+for row in education:
     print(row)
+
+
+
+#for item in education:
+#  if item['resume_id'] == 1:
+#      for line in item['responsibilities']. splitlines():
+#          print(line)
+#      print(' ')

@@ -1,77 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-  
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Bootstrap and custom CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
- <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}">
-
-    <title>Danny Resume</title>
-</head>
-
-<body>
+	<head>
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+				<!-- Bootstrap and custom CSS -->
+				<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+					<link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}">
+						<title>Danny Resume</title>
+					</head>
+					<body>
       {% include "nav_1.html"  %}
 
-      <h1 class="text-center" style="color:white" >Resumes</h1>
+      <h1 class="text-center" style="color:white">Resumes</h1>
+						<!--  -->
+						<p>
+	
+	<div id="accordion" role="tablist">
+		<div class="card">
+			<div class="card-header" role="tab" id="headingOne1">
+				<h5 class="mb-0">
+					<a data-toggle="collapse" href="#collapseOne1" role="button" aria-expanded="true" aria-controls="collapseOne1">Work Experience</a>
+				</h5>
+			</div>
+			<div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordion1">
+				<div class="card-body">
 
-
-
-  <p>
-      <div>
-        {% for yearexp in workexp %}  <!-- extract each items -->
-         
-              <div style="color:white">{{yearexp['working_date_from']}} - {{yearexp['working_date_end']}} : {{yearexp['job_title']}},  {{yearexp['company_name']}} ,  {{yearexp['location']}}</div> 
-
-              {% if 'responsibilities' in yearexp %}
-                  <div>{{yearexp['responsibilities']}}</div>  
-              {% endif %}
-         </div>   
-      </div>
-      
-        
-        {% endfor %}
-    </div>
-  </p>
-  
-  
-
-<div id="accordion" role="tablist" >
-  <div class="card" >
-    <div class="card-header" role="tab" id="headingOne1">
-      <h5 class="mb-0" > <a data-toggle="collapse" href="#collapseOne1" role="button" aria-expanded="true" aria-controls="collapseOne1">Work Experience</a> </h5>
-    </div>
-    
-    <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordion1">
-      <div class="card-body">1998-1999	Computer LTD.	 Hong Kong</div>
-    </div>
-    
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingTwo1">
-      <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseTwo1" role="button" aria-expanded="false" aria-controls="collapseTwo1"> Eduction </a> </h5>
-    </div>
-    <div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1" data-parent="#accordion1">
-      <div class="card-body">Content for Accordion Panel 2</div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingThree1">
-      <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseThree1" role="button" aria-expanded="false" aria-controls="collapseThree1"> Skills&nbsp; </a> </h5>
-    </div>
-    <div id="collapseThree1" class="collapse" role="tabpanel" aria-labelledby="headingThree1" data-parent="#accordion1">
-      <div class="card-body">Content for Accordion Panel 3</div>
-    </div>
-  </div>
-</div>
-  
-
+              {% include "listexperience.html"  %}
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingTwo1">
+						<h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapseTwo1" role="button" aria-expanded="false" aria-controls="collapseTwo1"> Eduction </a>
+						</h5>
+					</div>
+					<div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1" data-parent="#accordion1">
+						<div class="card-body">
+                {% include "education.html"  %}
+					  </div>
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingThree1">
+						<h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapseThree1" role="button" aria-expanded="false" aria-controls="collapseThree1"> Skills&nbsp; </a>
+						</h5>
+					</div>
+					<div id="collapseThree1" class="collapse" role="tabpanel" aria-labelledby="headingThree1" data-parent="#accordion1">
+						<div class="card-body">
+               {% include "skill.html"  %}
+              
+					</div>
+				</div>
+			</div>
+		</diV>
+	</diV>
      {% include "footer.html"  %}
   
 </body>
-
-</html>
+					</html>
 

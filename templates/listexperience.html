@@ -1,0 +1,10 @@
+<div class="fw-bold" style="color:darkblue" >
+        {% for yearexp in workexp %}  <!-- extract each items -->
+								<div>{{yearexp['working_date_from']}} - {{yearexp['working_date_end']}} : {{yearexp['job_title']}},  {{yearexp['company_name']}} ,  {{yearexp['location']}}</div>
+								<ul>
+                     {% for line in yearexp['responsibilities'].splitlines() %}
+                     <li style="color:darkblue">{{line}} </li>
+                     {% endfor %}   
+                </ul> 
+        {% endfor %} 
+</div>

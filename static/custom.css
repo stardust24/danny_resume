@@ -22,8 +22,8 @@ body footer {
 }
 
 #accordion {
-    margin-right: 10%;
-    margin-left: 10%;
+    margin-right: 0%;
+    margin-left: 0%;
     margin-bottom: 5%;
     color: #010101;
 }
@@ -152,4 +152,70 @@ fieldset {
 #accordion .card {
     background-color: #F4E5B1;
     color: #373737;
+}
+
+.tab {
+    display: inline-block;
+    margin-left: 4em;
+}
+
+
+
+
+.job-date {
+    display: inline-block;
+    width: 100%;
+    padding-left: 4px;
+    margin-left: 20px;
+    color: #010101;
+}
+
+.job-date span {
+  display: inline-block;
+  width: 100px;
+}
+
+.job-date span:first-child {
+  text-align: right;
+}
+
+.job-date span:last-child {
+  text-align: left;
+}
+
+.job-date span:first-child::after {
+  content: " : ";
+ }
+
+.job-date {
+    display: inline-block;
+    width: 100%;
+    padding-left: 4px;
+    margin-left: 20px;
+    color: #010101;
+}
+
+
+
+.duty-prefix {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-left: 80px;	
+}
+
+.duty-prefix::before {
+  content:  ' ● ';
+}
+
+.job-title {
+    text-indent: 80px;
+    font-weight: normal;
+    font-size: large;
+}
+
+#footer {
+    width: auto;
+    text-align: center;
+    font-style: italic;
 }
