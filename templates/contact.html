@@ -14,12 +14,23 @@
 <body>
       {% include "nav.html"  %}
 
-      <h1 class="text-center" style="color:white">Contact</h1>
+      <h1 class="text-center" style="color:white">Contact Me</h1>
 						
 			<p>
-	
-      <p class="text-justify" style="color:ghostwhite"><strong> Welcome to my website! My name is Danny Chui, and I'm excited to share my experiences and ideas with you. I have a passion for learn new technology, and I've been fortunate enough to have some amazing opportunities to work in this field. I started my career as programmer, where I learned the ropes and gained valuable skills that would serve me well throughout my career. When I'm not working, I love to learn new thing. I believe that knowledge is power, and I try to live my life in a way that reflects those values. I created this website to apply my new programming language knowledge. I hope you'll find it informative and engaging, and I look forward to hearing your feedback. Thank you for visiting my website, and I hope you'll come back soon!</strong></p>
-  
+    <div class="container">
+      <form  action="mailto:dannytsc@gmail.com" method="post" enctype="text/plain>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label" style="color:white"><strong>Email address</strong></label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label" style="color:white"><strong>Message</strong></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <input type="submit" value="Send" class="btn btn-primary">
+      </form>
+   </div>
        {% include "footer.html"  %}
   
 </body>
