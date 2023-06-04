@@ -1,5 +1,5 @@
 .container-fluid {
-    background-image: url(../images/Wall.png);
+
 }
 .container-fluid .container .navbar.navbar-expand-lg.navbar-light.bg-light {
     background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,1.00) 0%,rgba(91,91,91,1.00) 100%);
@@ -30,7 +30,7 @@ h5 {
 
 
 body {
-    background-image: url('/static/Wall.png');
+    background-image: url('/static/Wall.webp');
 }
 
 
