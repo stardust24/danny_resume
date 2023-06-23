@@ -19,7 +19,7 @@ engine = create_engine(db_connection_string,
 # --------------load work experience ---------------------------------------------------------
 def load_work_exp():
     #select data from database
-    sl_str ="select person_exp_hist.resume_id, person_exp_hist.profile_id, person_exp_hist.working_date_from, person_exp_hist.working_date_end, person_exp_hist.job_title, person_exp_hist.company_name, person_exp_hist.location, person_exp_hist.responsibilities, person_profile.name, person_profile.last_name, person_profile.date_of_birth, person_profile.phone, person_profile.email, person_profile.interests, person_profile.achievements FROM  person_exp_hist JOIN person_profile ON person_exp_hist.profile_id = person_profile.profile_id"
+    sl_str ="select person_exp_hist.resume_id, person_exp_hist.profile_id, person_exp_hist.working_date_from, person_exp_hist.working_date_end, person_exp_hist.job_title, person_exp_hist.company_name, person_exp_hist.location, person_exp_hist.responsibilities, person_profile.name, person_profile.last_name, person_profile.date_of_birth, person_profile.phone, person_profile.email, person_profile.interests, person_profile.achievements FROM  person_exp_hist JOIN person_profile ON person_exp_hist.profile_id = person_profile.profile_id order by person_exp_hist.working_date_from DESC"
   
     with engine.connect() as conn:
         result = conn.execute(text(sl_str))
